@@ -3,3 +3,6 @@ body{
   color: #a52a2a;
  
 }
+input{
+  outline-style: none;
+}

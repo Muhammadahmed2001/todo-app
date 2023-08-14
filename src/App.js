@@ -1,24 +1,30 @@
 import "./App.css";
-import Login from "./components/Login";
+// import {Login , onSearch} from "./components/Login";
 import { useState } from "react";
+// console.log("value====>" , onSearch)
 
 function App() {
-  const [todo, satTodo] = useState(["1234", "5678"]);
-  console.log(todo, satTodo);
+  const [todo, satTodo] = useState([]);
+  const [value, satvalue] = useState("");
   return (
-    <div className="container">
+    
+    <div>
       <h1 className="todo-heading">TODO LIST</h1>
-      <div className="todo-card">
-        <Login />
-        <div>
+      
+        <input value={value} onChange={(e)=> satvalue(e.target.value)} type="text" />
+      <button onClick={() => {
+        satTodo([...todo, value])
+        satvalue('')
+      }
+         }>Add Todo</button>
+
           <ul>
             {todo.map((v, i) => (
               <li key={i}>{v}</li>
             ))}
           </ul>
         </div>
-      </div>
-    </div>
+    
   );
 }
 
