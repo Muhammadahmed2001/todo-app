@@ -3,8 +3,8 @@ import Login from "./components/Login";
 import { useState } from "react";
 
 function App() {
-  const [todo,satTodo] = useState(["ahmed"]);
-  console.log(todo,satTodo)
+  const [todo, satTodo] = useState(["1234", "5678"]);
+  console.log(todo, satTodo);
   return (
     <div className="container">
       <h1 className="todo-heading">TODO LIST</h1>
@@ -12,10 +12,9 @@ function App() {
         <Login />
         <div>
           <ul>
-            <li>ahmed</li>
-            <li>samad</li>
-            <li>rehman</li>
-            <li>karim</li>
+            {todo.map((v, i) => (
+              <li key={i}>{v}</li>
+            ))}
           </ul>
         </div>
       </div>
