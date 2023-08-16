@@ -20,7 +20,7 @@ function App() {
 
           <ul>
             {todo.map((v, i) => (
-              <li key={i}>{v}</li>
+              <li key={i}>{v} <button>delete</button></li>
             ))}
           </ul>
         </div>
