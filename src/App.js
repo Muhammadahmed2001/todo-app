@@ -6,25 +6,39 @@ import { useState } from "react";
 function App() {
   const [todo, satTodo] = useState([]);
   const [value, satvalue] = useState("");
+  const deleteItem = (ind) => {
+    console.log(ind);
+    const afterDeleArr = todo.filter((ele, index) => {
+      return index !== ind;
+    });
+    satTodo(afterDeleArr)
+  };
   return (
-    
     <div>
       <h1 className="todo-heading">TODO LIST</h1>
-      
-        <input value={value} onChange={(e)=> satvalue(e.target.value)} type="text" />
-      <button onClick={() => {
-        satTodo([...todo, value])
-        satvalue('')
-      }
-         }>Add Todo</button>
 
-          <ul>
-            {todo.map((v, i) => (
-              <li key={i}>{v} <button>delete</button></li>
-            ))}
-          </ul>
-        </div>
-    
+      <input
+        value={value}
+        onChange={(e) => satvalue(e.target.value)}
+        type="text"
+      />
+      <button
+        onClick={() => {
+          satTodo([...todo, value]);
+          satvalue("");
+        }}
+      >
+        Add Todo
+      </button>
+
+      <ul>
+        {todo.map((v, i) => (
+          <li key={i}>
+            {v} <button onClick={() => deleteItem(i)}>delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
