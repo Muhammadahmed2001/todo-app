@@ -13,6 +13,9 @@ function App() {
     });
     satTodo(afterDeleArr)
   };
+  const deleteAll = ()=>{
+    satTodo([]);
+  }
   return (
     <div>
       <h1 className="todo-heading">TODO LIST</h1>
@@ -30,6 +33,7 @@ function App() {
       >
         Add Todo
       </button>
+      <button onClick={deleteAll}>Delete All</button>
 
       <ul>
         {todo.map((v, i) => (
